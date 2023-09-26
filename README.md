@@ -24,9 +24,9 @@ WebAPI HospitalOnline:
 ***Main Function:
 - Create/Read/Update/Delete API 
 - Upload Images
-- Read QR
 - SendMail SMTP
 - User Account Management
 - Authentication Role Claim Login Register
 - Authentication Role
+- Read QR
   

@@ -11,5 +11,5 @@ namespace Infrastructure.Repositories.Doctors
         Task AddDoctor(Doctor doctor);
         Task UpdateDoctor(Doctor doctor);
         Task DeleteDoctor(int id);
-    }
+	}
 }

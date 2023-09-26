@@ -39,5 +39,6 @@ namespace Infrastructure.EF
 		public DbSet<Patient> Patients { get; set; }
 		public DbSet<Appointment> Appointments { get; set; }
 		public DbSet<MedicalHistory> MedicalHistories { get; set; }	
+		public DbSet<PatientImage> PatientImages { get; set; }	
 	}
 }

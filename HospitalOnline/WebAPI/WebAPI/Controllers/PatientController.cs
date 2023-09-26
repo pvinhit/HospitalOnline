@@ -56,5 +56,31 @@ namespace WebAPI.Controllers
 			return Ok("Delete successfully");
 		}
 
+		[HttpGet("{patientId}/images/{imageId}")]
+		public async Task<IActionResult> GetImageById(int patientId, int imageId)
+		{
+			var image = await _patientService.GetImageById(imageId);
+			if (image == null)
+				return BadRequest("Cannot find product");
+			return Ok(image);
+		}
+
+		[HttpPost("{patientId}/images")]
+		public async Task<IActionResult> CreateImage(int patientId, [FromForm] PatientImageCreateDto patientImageDto)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var imageId = await _patientService.AddImage(patientId, patientImageDto);
+			if (imageId == 0)
+				return BadRequest();
+
+			var image = await _patientService.GetImageById(imageId);
+
+			return CreatedAtAction(nameof(GetImageById), new { id = imageId }, image);
+		}
+
+
 	}
 }

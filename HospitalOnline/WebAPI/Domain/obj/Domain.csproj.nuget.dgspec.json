@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PersionalProject\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj": {}
+    "C:\\PersionalProject\\HospitalOnline\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\PersionalProject\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj": {
+    "C:\\PersionalProject\\HospitalOnline\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PersionalProject\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\PersionalProject\\HospitalOnline\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\PersionalProject\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj",
+        "projectPath": "C:\\PersionalProject\\HospitalOnline\\HospitalOnline\\WebAPI\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\pvinh\\.nuget\\packages\\",
-        "outputPath": "C:\\PersionalProject\\HospitalOnline\\WebAPI\\Domain\\obj\\",
+        "outputPath": "C:\\PersionalProject\\HospitalOnline\\HospitalOnline\\WebAPI\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pvinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,7 +40,15 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
               "target": "Package",
               "version": "[3.1.0, )"
             }

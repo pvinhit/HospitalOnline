@@ -146,8 +146,8 @@ namespace Application.Services.User
 			return new ApiErrorResult<bool>("Xóa không thành công");
 		}
 
-		public async Task<ApiResult<PagedResult<UserDto>>> GetUsersPaging(PagingDto pagingDto)
-		{
+		//public async Task<ApiResult<PagedResult<UserDto>>> GetUsersPaging(PagingDto pagingDto)
+		//{
 
 			//2.filter
 			//var query = _userManager.Users;
@@ -181,7 +181,7 @@ namespace Application.Services.User
 			//	Items = data
 			//};
 			//return new ApiSuccessResult<PagedResult<UserDto>>(pagedResult);
-		}
+		//}
 
 		public async Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignDto request)
 		{
@@ -209,6 +209,11 @@ namespace Application.Services.User
 				}
 			}
 			return new ApiSuccessResult<bool>();
+		}
+
+		public Task<ApiResult<PagedResult<UserDto>>> GetUsersPaging(PagingDto pagingDto)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

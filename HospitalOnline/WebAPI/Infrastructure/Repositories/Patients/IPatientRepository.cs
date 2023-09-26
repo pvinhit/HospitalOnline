@@ -13,5 +13,8 @@ namespace Infrastructure.Repositories.Patients
 		Task Add(Patient patient);
 		Task Update(Patient patient);
 		Task Delete(int id);
+		Task<PatientImage> GetImageById(int imageId);
+		Task<int> AddPatientImage(PatientImage patientImage);
+		Task<int> UpdateImage(int imageId, PatientImage patientImage);
 	}
 }

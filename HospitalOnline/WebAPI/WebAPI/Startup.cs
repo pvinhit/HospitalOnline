@@ -125,12 +125,23 @@ namespace WebAPI
 					};
 				});
 			});
+
+			services.AddCors(options =>
+				{
+					options.AddPolicy("ReactCorsPolicy", builder =>
+					{
+						builder.WithOrigins("http://localhost:3000") 
+							.AllowAnyMethod()
+							.AllowAnyHeader();
+					});
+			});
 		}
 
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			app.UseCors("ReactCorsPolicy");
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -153,3 +164,9 @@ namespace WebAPI
 		}
 	}
 }
+
+
+
+
+
+

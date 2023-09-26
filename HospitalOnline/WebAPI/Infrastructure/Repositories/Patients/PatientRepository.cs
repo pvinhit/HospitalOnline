@@ -48,5 +48,22 @@ namespace Infrastructure.Repositories.Patients
 				await _context.SaveChangesAsync();	
 			}
 		}
+
+		public async Task AddPatientImage(PatientImage patientImage)
+		{
+			_context.PatientImages.Add(patientImage);	
+			await _context.SaveChangesAsync();	
+		}
+
+		public async Task<PatientImage> GetImageById(int imageId)
+		{
+			return await _context.PatientImages.FindAsync(imageId);
+		}
+
+		public async Task UpdateImage(PatientImage patientImage)
+		{
+			_context.PatientImages.Update(patientImage);
+			await _context.SaveChangesAsync();
+		}
 	}
 }

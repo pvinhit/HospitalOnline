@@ -1,6 +1,6 @@
 # HospitalOnline
 WebAPI HospitalOnline:
-***Tools:
+***-Tools:
 - Microsoft SQL Server Express 2022
 - Visual Studio Community 2022
 - Swagger.UI
@@ -8,16 +8,16 @@ WebAPI HospitalOnline:
 - Postgresql
 - Git/Github/Gitlab
 - Docker
-***Technology:
+***-Technology:
 - .NET core 3.1
 - Reactjs/Typescript
 - Axios
 - Entity Framework Core (Identity, FluentAPI)
-***Architecture:
+***-Architecture:
 - Clean Architecture
 - Microservice Architecture
 - Repository Pattern
-***Main Function:
+***-Main Function:
 - Create/Read/Update/Delete API 
 - Upload Images
 - Read QR

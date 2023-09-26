@@ -18,6 +18,14 @@ namespace Demo.Helper
 
 			CreateMap<Appointment, AppointmentDto>();
 			CreateMap<AppointmentDto, Appointment>();
+
+			CreateMap<PatientImage, PatientImageCreateDto>();
+			CreateMap<PatientImageCreateDto, PatientImage>();
+
+			CreateMap<PatientImage, ProductImageUpdateDto>();
+			CreateMap<ProductImageUpdateDto, PatientImage>();
+
+			
 		}
 	}
 }

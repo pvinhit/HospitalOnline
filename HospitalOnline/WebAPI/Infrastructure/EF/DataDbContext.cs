@@ -26,6 +26,8 @@ namespace Infrastructure.EF
 			modelBuilder.ApplyConfiguration(new DoctorConfiguration());
 			modelBuilder.ApplyConfiguration(new PatientConfiguration());
 
+			modelBuilder.ApplyConfiguration(new PatientImageConfiguration());
+
 			modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
 			modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
 			modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);

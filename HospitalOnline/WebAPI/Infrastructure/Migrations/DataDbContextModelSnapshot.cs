@@ -136,7 +136,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "9722bc95-de6b-4559-8a9d-40baca440d92",
+                            ConcurrencyStamp = "7c0e35aa-a8d5-4c2a-b33a-a53fd858e4d5",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -213,7 +213,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7e9c924f-2820-4a12-9b31-dbbfcd0cb96a",
+                            ConcurrencyStamp = "a474f0ff-23b0-43e9-a55f-1968e38c3471",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tedu.international@gmail.com",
                             EmailConfirmed = true,
@@ -222,7 +222,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "tedu.international@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG11oUBvuAlOhrlPmeqVpCmo8XmdEBfB9PuBb3To1fZdpvXHWXXDluQAAdfx4UDFXg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELv0PQhqu8A8x0QAIFyvB8x5xP9fvJ1NTozA9MNyLVmqPRuBi5OaR/5WnsC1dMB3+w==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -321,6 +321,41 @@ namespace Infrastructure.Migrations
                             Phone = "09123456789",
                             doctorId = 1
                         });
+                });
+
+            modelBuilder.Entity("Domain.Entity.PatientImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Caption")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("patientId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("patientId");
+
+                    b.ToTable("PatientImages");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -454,6 +489,15 @@ namespace Infrastructure.Migrations
                     b.HasOne("Demo.Entities.Doctor", "Doctor")
                         .WithMany("Patients")
                         .HasForeignKey("doctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entity.PatientImage", b =>
+                {
+                    b.HasOne("Domain.Entity.Patient", "Patient")
+                        .WithMany("PatientImages")
+                        .HasForeignKey("patientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

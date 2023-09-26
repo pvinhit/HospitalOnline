@@ -16,5 +16,6 @@ namespace Infrastructure.Repositories.Patients
 		Task<PatientImage> GetImageById(int imageId);
 		Task<int> AddPatientImage(PatientImage patientImage);
 		Task<int> UpdateImage(int imageId, PatientImage patientImage);
+		Task<int> RemoveProductImage(int imageId);
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using Application.DTOs;
 using Application.Services.Patients;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -72,15 +73,38 @@ namespace WebAPI.Controllers
 			{
 				return BadRequest(ModelState);
 			}
-			var imageId = await _patientService.AddImage(patientId, patientImageDto);
+			int imageId = await _patientService.AddImage(patientId, patientImageDto);
 			if (imageId == 0)
 				return BadRequest();
-
-			var image = await _patientService.GetImageById(imageId);
-
-			return CreatedAtAction(nameof(GetImageById), new { id = imageId }, image);
+			return CreatedAtAction(nameof(GetImageById), new { id = imageId }, patientId);
 		}
 
+		[HttpPut("{patientId}/images/{imageId}")]
+		public async Task<IActionResult> UpdateImage(int imageId, [FromForm] ProductImageUpdateDto request)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var result = await _patientService.UpdateImage(imageId, request);
+			if (result == 0)
+				return BadRequest();
 
+			return Ok();
+		}
+
+		[HttpDelete("{patientId}/images/{imageId}")]
+		public async Task<IActionResult> RemoveImage(int imageId)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var result = await _patientService.RemoveImage(imageId);
+			if (result == 0)
+				return BadRequest();
+
+			return NoContent();
+		}
 	}
 }

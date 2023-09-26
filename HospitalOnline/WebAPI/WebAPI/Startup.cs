@@ -1,4 +1,5 @@
 using Application.Services.Appointments;
+using Application.Services.Common;
 using Application.Services.Doctors;
 using Application.Services.Patients;
 using Application.Services.Role;
@@ -57,6 +58,8 @@ namespace WebAPI
 
 			services.AddScoped<IAppointmentService, AppointmentService>();
 			services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+
+			services.AddScoped<IStorageService, FileStorageService>();
 
 			services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
 			services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();

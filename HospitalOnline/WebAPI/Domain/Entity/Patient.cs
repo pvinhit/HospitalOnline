@@ -18,5 +18,6 @@ namespace Domain.Entity
 		public int doctorId { get; set; }
 		public Doctor Doctor { get; set; }
 		public List<Appointment> Appointments { get; set; }
+		public List<PatientImage> PatientImages { get; set; }	
 	}
 }

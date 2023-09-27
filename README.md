@@ -34,7 +34,7 @@ WebAPI HospitalOnline:
   
 ***Image SwaggerAPI
 
-![image](https://github.com/pvinhit/HospitalOnline/assets/143589288/759d5cbf-6f80-42d9-bf73-673a9e8ea935)
+- ![image](https://github.com/pvinhit/HospitalOnline/assets/143589288/759d5cbf-6f80-42d9-bf73-673a9e8ea935)
 
 
   

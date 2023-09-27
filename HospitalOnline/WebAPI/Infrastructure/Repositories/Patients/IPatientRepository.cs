@@ -19,6 +19,6 @@ namespace Infrastructure.Repositories.Patients
 		Task<int> AddPatientImage(PatientImage patientImage);
 		Task<int> UpdateImage(int imageId, PatientImage patientImage);
 		Task<int> RemoveProductImage(int imageId);
-		Task<List<Patient>> GetPagingAllPatients(int pageNumber, int allPatients);
+		Task<List<Patient>> GetPagingAllPatients(int pageNumber, int pageSize);
 	}
 }

@@ -27,6 +27,6 @@ WebAPI HospitalOnline:
 - SendMail SMTP
 - User Account Management
 - Authentication Role Claim Login Register
-- Authentication Role
+- Authentication
 - Read QR
   

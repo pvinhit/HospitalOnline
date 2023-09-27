@@ -79,13 +79,6 @@ namespace WebAPI.Controllers
 			return Ok(result);
 		}
 
-		[HttpGet("paging")]
-		public async Task<IActionResult> GetAllPaging([FromQuery] PagingDto pagingDto)
-		{
-			var users = await _userService.GetUsersPaging(pagingDto);
-			return Ok(users);
-		}
-
 		[HttpPut("{id}/roles")]
 		public async Task<IActionResult> RoleAssign(Guid id, [FromBody] RoleAssignDto request)
 		{

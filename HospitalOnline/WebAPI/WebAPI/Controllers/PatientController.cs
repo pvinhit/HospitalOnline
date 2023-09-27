@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using WebAPI.Filters;
 
 namespace WebAPI.Controllers
 {
@@ -18,10 +19,17 @@ namespace WebAPI.Controllers
             _patientService = patientService;
         }
 
+		//[HttpGet]
+		//public async Task<IActionResult> GetAllPatients()
+		//{
+		//	var patients = await _patientService.GetAllPatients();
+		//	return Ok(patients);
+		//} 
+
 		[HttpGet]
-		public async Task<IActionResult> GetAllPatients()
+		public async Task<ActionResult<PagedList<PatientsDto>>> GetPagingPatients([FromQuery] PatientParams patientParams)
 		{
-			var patients = await _patientService.GetAllPatients();
+			var patients = await _patientService.GetPagingAllPatients(patientParams.PageSize, patientParams.PageNumber);
 			return Ok(patients);
 		}
 

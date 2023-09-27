@@ -1,6 +1,8 @@
 ﻿using Application.DTOs;
 using Application.Services.Common;
 using AutoMapper;
+using Demo.DTOs;
+using Demo.Entities;
 using Domain.Entity;
 using Infrastructure.Common;
 using Infrastructure.Exceptions;
@@ -56,11 +58,6 @@ namespace Application.Services.Patients
 		public async Task Delete(int id)
 		{
 			await _patientRepository.Delete(id);	
-		}
-
-		public Task<PagedResult<PatientsDto>> GetAllPaging(PagingDto pagingDto)
-		{
-			throw new NotImplementedException();
 		}
 
 		public async Task<PatientImageDto> GetImageById(int imageId)
@@ -127,6 +124,12 @@ namespace Application.Services.Patients
 		public async Task<int> RemoveImage(int imageId)
 		{
 			return await _patientRepository.RemoveProductImage(imageId);
+		}
+
+		public async Task<List<PatientsDto>> GetPagingAllPatients(int pageSize, int pageNumber)
+		{
+			var patients = await _patientRepository.GetPagingAllPatients(pageSize, pageNumber );
+			return _mapper.Map<List<PatientsDto>>(patients);
 		}
 	}
 }

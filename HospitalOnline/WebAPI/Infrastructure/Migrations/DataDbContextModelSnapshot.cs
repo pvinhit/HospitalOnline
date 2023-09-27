@@ -136,7 +136,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "7c0e35aa-a8d5-4c2a-b33a-a53fd858e4d5",
+                            ConcurrencyStamp = "f417e6af-c47a-41db-a429-12fefe3c706a",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -213,7 +213,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a474f0ff-23b0-43e9-a55f-1968e38c3471",
+                            ConcurrencyStamp = "75c244c9-d8b0-473d-a52a-6ed58b1a9f6b",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tedu.international@gmail.com",
                             EmailConfirmed = true,
@@ -222,7 +222,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "tedu.international@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAELv0PQhqu8A8x0QAIFyvB8x5xP9fvJ1NTozA9MNyLVmqPRuBi5OaR/5WnsC1dMB3+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELDt7saJeWI0Nby0q16DdB+zO0C5zVWmZ9tJLadVC3Q0SNiM/T+pQVzFoRTCH2N1cQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -320,6 +320,102 @@ namespace Infrastructure.Migrations
                             NumberBHYT = "BH24612222152199",
                             Phone = "09123456789",
                             doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "My",
+                            Gender = "Nu",
+                            LastName = "Nguyen",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Ngoc",
+                            Gender = "Nu",
+                            LastName = "Duyen",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Quang",
+                            Gender = "Nu",
+                            LastName = "Duyen",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Quang",
+                            Gender = "Nu",
+                            LastName = "Nguyen",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Huynh",
+                            Gender = "Nu",
+                            LastName = "Duyen",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Xuan",
+                            Gender = "Nu",
+                            LastName = "Duyen",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Thao",
+                            Gender = "Nu",
+                            LastName = "Duyen",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Quang Tri",
+                            DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Thao",
+                            Gender = "Nu",
+                            LastName = "Linh",
+                            NumberBHYT = "BH24612222152199",
+                            Phone = "09123456789",
+                            doctorId = 1
                         });
                 });
 
@@ -331,7 +427,8 @@ namespace Infrastructure.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Caption")
-                        .HasColumnType("text");
+                        .HasColumnType("character varying(200)")
+                        .HasMaxLength(200);
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp without time zone");
@@ -340,7 +437,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("ImagePath")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnType("character varying(200)")
+                        .HasMaxLength(200);
 
                     b.Property<bool>("IsDefault")
                         .HasColumnType("boolean");

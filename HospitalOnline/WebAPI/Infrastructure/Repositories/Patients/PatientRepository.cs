@@ -1,5 +1,7 @@
 ﻿
+using Demo.Entities;
 using Domain.Entity;
+using Infrastructure.Common;
 using Infrastructure.EF;
 using Infrastructure.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -104,6 +106,25 @@ namespace Infrastructure.Repositories.Patients
 			{
 				return -1;
 			}
+		}
+
+		public async Task<List<Patient>> GetPagingAllPatients(int pageSize, int pageNumber)
+		{
+			var allPatients = _context.Patients
+							 .AsQueryable();
+
+			//var query = _context.Products
+			//	.Sort(productParams.OrderBy)
+			//	.Search(productParams.SearchTerm)
+			//	.Filter(productParams.Brands, productParams.Types)
+			//	.AsQueryable();
+
+			var pagedPatients = await allPatients
+									.Skip((pageNumber - 1) * pageSize)
+									.Take(pageSize)
+									.ToListAsync();
+
+			return pagedPatients;
 		}
 	}
 }

@@ -14,7 +14,6 @@ namespace Application.Services.User
 		Task<ApiResult<bool>> Register(RegisterDto registerDto);
 		Task<ApiResult<bool>> Update(Guid id, UserUpdateDto userUpdateDto);
 		Task<ApiResult<bool>> Delete(Guid id);
-		Task<ApiResult<PagedResult<UserDto>>> GetUsersPaging(PagingDto pagingDto);
 		Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignDto request);
 	}
 }

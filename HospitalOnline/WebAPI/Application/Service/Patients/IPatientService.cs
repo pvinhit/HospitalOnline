@@ -15,10 +15,10 @@ namespace Application.Services.Patients
 		Task Add(PatientsDto patientsDto);
 		Task Update(PatientsDto patientsDto);
 		Task Delete(int id);
-		Task<PagedResult<PatientsDto>> GetAllPaging(PagingDto pagingDto);
 		Task<PatientImageDto> GetImageById(int imageId);
 		Task<int> AddImage(int patientId, PatientImageCreateDto patientImageDto);
 		Task<int> UpdateImage(int imageId, ProductImageUpdateDto patientImageUpdateDto);
 		Task<int> RemoveImage(int imageId);
+		Task<List<PatientsDto>> GetPagingAllPatients(int pageSize, int pageNumber);
 	}
 }

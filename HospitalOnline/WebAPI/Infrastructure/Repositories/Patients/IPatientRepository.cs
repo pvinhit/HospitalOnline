@@ -1,4 +1,6 @@
-﻿using Domain.Entity;
+﻿using Demo.Entities;
+using Domain.Entity;
+using Infrastructure.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,5 +19,6 @@ namespace Infrastructure.Repositories.Patients
 		Task<int> AddPatientImage(PatientImage patientImage);
 		Task<int> UpdateImage(int imageId, PatientImage patientImage);
 		Task<int> RemoveProductImage(int imageId);
+		Task<List<Patient>> GetPagingAllPatients(int pageNumber, int allPatients);
 	}
 }

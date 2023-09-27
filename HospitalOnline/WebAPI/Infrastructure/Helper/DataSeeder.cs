@@ -51,7 +51,103 @@ namespace Infrastructure.Helper
                     Address = "Quang Nam",
                     NumberBHYT = "BH24612222152199"
 				}
-            );
+                , new Patient()
+				{
+					Id = 3,
+					doctorId = 1,
+					FirstName = "My",
+					LastName = "Nguyen",
+					DateOfBirth = new DateTime(2000, 12, 12),
+					Gender = "Nu",
+					Phone = "09123456789",
+					Address = "Quang Tri",
+					NumberBHYT = "BH24612222152199"
+				},
+				 new Patient()
+				{
+				Id = 4,
+					doctorId = 1,
+					FirstName = "Ngoc",
+					LastName = "Duyen",
+					DateOfBirth = new DateTime(2000, 12, 12),
+					Gender = "Nu",
+					Phone = "09123456789",
+					Address = "Quang Tri",
+					NumberBHYT = "BH24612222152199"
+				},
+				 new Patient()
+				 {
+					 Id = 5,
+					 doctorId = 1,
+					 FirstName = "Quang",
+					 LastName = "Duyen",
+					 DateOfBirth = new DateTime(2000, 12, 12),
+					 Gender = "Nu",
+					 Phone = "09123456789",
+					 Address = "Quang Tri",
+					 NumberBHYT = "BH24612222152199"
+				 },
+				 new Patient()
+				 {
+					 Id = 6,
+					 doctorId = 1,
+					 FirstName = "Quang",
+					 LastName = "Nguyen",
+					 DateOfBirth = new DateTime(2000, 12, 12),
+					 Gender = "Nu",
+					 Phone = "09123456789",
+					 Address = "Quang Tri",
+					 NumberBHYT = "BH24612222152199"
+				 },
+				 new Patient()
+				 {
+					 Id = 7,
+					 doctorId = 1,
+					 FirstName = "Huynh",
+					 LastName = "Duyen",
+					 DateOfBirth = new DateTime(2000, 12, 12),
+					 Gender = "Nu",
+					 Phone = "09123456789",
+					 Address = "Quang Tri",
+					 NumberBHYT = "BH24612222152199"
+				 },
+				 new Patient()
+				 {
+					 Id = 8,
+					 doctorId = 1,
+					 FirstName = "Xuan",
+					 LastName = "Duyen",
+					 DateOfBirth = new DateTime(2000, 12, 12),
+					 Gender = "Nu",
+					 Phone = "09123456789",
+					 Address = "Quang Tri",
+					 NumberBHYT = "BH24612222152199"
+				 },
+				 new Patient()
+				 {
+					 Id = 9,
+					 doctorId = 1,
+					 FirstName = "Thao",
+					 LastName = "Duyen",
+					 DateOfBirth = new DateTime(2000, 12, 12),
+					 Gender = "Nu",
+					 Phone = "09123456789",
+					 Address = "Quang Tri",
+					 NumberBHYT = "BH24612222152199"
+				 },
+				 new Patient()
+				 {
+					 Id = 10,
+					 doctorId = 1,
+					 FirstName = "Thao",
+					 LastName = "Linh",
+					 DateOfBirth = new DateTime(2000, 12, 12),
+					 Gender = "Nu",
+					 Phone = "09123456789",
+					 Address = "Quang Tri",
+					 NumberBHYT = "BH24612222152199"
+				 }
+			);
             modelBuilder.Entity<Appointment>().HasData(
                 new Appointment()
                 {

@@ -210,10 +210,5 @@ namespace Application.Services.User
 			}
 			return new ApiSuccessResult<bool>();
 		}
-
-		public Task<ApiResult<PagedResult<UserDto>>> GetUsersPaging(PagingDto pagingDto)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

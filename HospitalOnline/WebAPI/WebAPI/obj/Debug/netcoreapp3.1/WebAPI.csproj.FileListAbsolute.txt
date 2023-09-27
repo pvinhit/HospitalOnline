@@ -149,3 +149,4 @@ C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcor
 C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.dll
 C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.pdb
 C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.genruntimeconfig.cache
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cs

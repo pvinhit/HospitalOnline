@@ -32,3 +32,15 @@ WebAPI HospitalOnline:
 - Authentication
 - Read QR
   
+***Image SwaggerAPI
+
+ ![image](https://github.com/pvinhit/HospitalOnline/assets/143589288/759d5cbf-6f80-42d9-bf73-673a9e8ea935)
+
+ ![image](https://github.com/pvinhit/HospitalOnline/assets/143589288/f8e4212e-3348-41b3-9a41-71b58d9c13ea)
+
+![image](https://github.com/pvinhit/HospitalOnline/assets/143589288/8952d1bb-4c8b-4f5b-94b5-d0439cb23631)
+
+ 
+
+
+  

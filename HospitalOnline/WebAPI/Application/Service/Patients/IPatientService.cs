@@ -1,6 +1,7 @@
 ﻿using Application.DTOs;
 using Domain.Entity;
 using Infrastructure.Common;
+using Infrastructure.Filters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,5 +21,8 @@ namespace Application.Services.Patients
 		Task<int> UpdateImage(int imageId, ProductImageUpdateDto patientImageUpdateDto);
 		Task<int> RemoveImage(int imageId);
 		Task<List<PatientsDto>> GetPagingAllPatients(int pageSize, int pageNumber);
+		Task<List<PatientsDto>> GetPagedAndSortedAsync(int pageSize, int pageNumber, string orderBy);
+		Task<List<PatientsDto>> GetFilteredAndPagedAsync(int pageSize, int pageNumber, string searchTerm);
+		Task<PagedList<PatientsDto>> GetPagedSortedAndFilteredAsync(PageParams productParams);
 	}
 }

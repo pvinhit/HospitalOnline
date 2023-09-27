@@ -4,6 +4,7 @@ using Domain.Entity;
 using Infrastructure.Common;
 using Infrastructure.EF;
 using Infrastructure.Exceptions;
+using Infrastructure.Filters;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -112,19 +113,68 @@ namespace Infrastructure.Repositories.Patients
 		{
 			var allPatients = _context.Patients
 							 .AsQueryable();
-
-			//var query = _context.Products
-			//	.Sort(productParams.OrderBy)
-			//	.Search(productParams.SearchTerm)
-			//	.Filter(productParams.Brands, productParams.Types)
-			//	.AsQueryable();
-
 			var pagedPatients = await allPatients
 									.Skip((pageNumber - 1) * pageSize)
 									.Take(pageSize)
 									.ToListAsync();
-
 			return pagedPatients;
+		}
+
+		public async Task<List<Patient>> GetPagedAndSortedAsync(int pageSize, int pageNumber, string orderBy)
+		{
+			var query = _context.Patients.AsQueryable();
+
+			// Áp dụng sắp xếp
+			if (!string.IsNullOrEmpty(orderBy))
+			{
+				switch (orderBy.ToLower())
+				{
+					case "name":
+						query = query.OrderBy(Patients => Patients.FirstName);
+						break;
+					case "date":
+						query = query.OrderBy(Patients => Patients.DateOfBirth);
+						break;
+					// Thêm các trường sắp xếp khác ở đây nếu cần
+					default:
+						query = query.OrderBy(Patients => Patients.Id); // Sắp xếp mặc định theo Id
+						break;
+				}
+			}
+			return await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+		}
+
+		public async Task<List<Patient>> GetPagedAndFilteredAsync(int pageSize, int pageNumber, string searchTerm)
+		{
+			var query = _context.Patients.AsQueryable();
+
+			// Áp dụng lọc
+			if (!string.IsNullOrEmpty(searchTerm))
+			{
+				query = query.Where(Patients => Patients.FirstName.Contains(searchTerm));
+				query = query.Where(Patients => Patients.LastName.Contains(searchTerm));
+				// Thêm các điều kiện lọc khác ở đây nếu cần
+			}
+
+			return await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+		}
+
+		public async Task<PagedList<Patient>> GetPagedSortedAndFilteredAsync(PageParams patientParams)
+		{
+
+			var query = _context.Patients.AsQueryable();
+
+			// Áp dụng sắp xếp dựa trên productParams.OrderBy
+			if (patientParams.OrderBy == "Gender")
+			{
+				query = query.OrderBy(p => p.Gender);
+			}
+			else if (patientParams.OrderBy == "Name")
+			{
+				query = query.OrderBy(p => p.FirstName);
+			}
+			// Thêm các điều kiện sắp xếp khác tùy theo nhu cầu
+			return await PagedList<Patient>.ToPagedList(query, patientParams.PageNumber, patientParams.PageSize);
 		}
 	}
 }

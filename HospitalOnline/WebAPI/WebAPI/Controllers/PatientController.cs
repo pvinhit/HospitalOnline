@@ -1,10 +1,11 @@
 ﻿using Application.DTOs;
 using Application.Services.Patients;
+using Infrastructure.Filters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using WebAPI.Filters;
+
 
 namespace WebAPI.Controllers
 {
@@ -19,18 +20,39 @@ namespace WebAPI.Controllers
             _patientService = patientService;
         }
 
-		//[HttpGet]
-		//public async Task<IActionResult> GetAllPatients()
-		//{
-		//	var patients = await _patientService.GetAllPatients();
-		//	return Ok(patients);
-		//} 
+		[HttpGet("getall")]
+		public async Task<IActionResult> GetAllPatients()
+		{
+			var patients = await _patientService.GetAllPatients();
+			return Ok(patients);
+		}
 
-		[HttpGet]
-		public async Task<ActionResult<PagedList<PatientsDto>>> GetPagingPatients([FromQuery] PatientParams patientParams)
+		[HttpGet("pagingall")]
+		public async Task<ActionResult<PagedList<PatientsDto>>> GetPagingPatients([FromQuery] PageParams patientParams)
 		{
 			var patients = await _patientService.GetPagingAllPatients(patientParams.PageSize, patientParams.PageNumber);
 			return Ok(patients);
+		}
+
+		[HttpGet("pagedandsorted")]
+		public async Task<ActionResult<PagedList<PatientsDto>>> GetPagedAndSortedPatients([FromQuery] int pageSize, [FromQuery] int pageNumber, [FromQuery] string orderBy)
+		{
+			var patients = await _patientService.GetPagedAndSortedAsync(pageSize, pageNumber, orderBy);
+			return Ok(patients);
+		}
+
+		[HttpGet("filteredandpaged")]
+		public async Task<ActionResult<PagedList<PatientsDto>>> GetFilteredAndPagedPatients([FromQuery] int pageSize, [FromQuery] int pageNumber, [FromQuery] string searchTerm)
+		{
+			var patients = await _patientService.GetFilteredAndPagedAsync(pageSize, pageNumber, searchTerm);
+			return Ok(patients);
+		}
+
+		[HttpGet("filteredpagedSorted")]
+		public async Task<ActionResult<PagedList<PatientsDto>>> GetPagedSortedAndFilteredAsync([FromQuery] PageParams productParams)
+		{
+			var products = await _patientService.GetPagedSortedAndFilteredAsync(productParams);
+			return Ok(products);
 		}
 
 		[HttpGet("{id}")]

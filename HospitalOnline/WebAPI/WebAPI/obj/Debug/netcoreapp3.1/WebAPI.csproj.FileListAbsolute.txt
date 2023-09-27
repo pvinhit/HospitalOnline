@@ -150,3 +150,13 @@ C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcor
 C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.pdb
 C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.genruntimeconfig.cache
 C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\BouncyCastle.Cryptography.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\System.Formats.Asn1.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Cng.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Cng.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\PersionalProject\HospitalOnline\HospitalOnline\WebAPI\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Text.Encoding.CodePages.dll

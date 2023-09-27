@@ -7,6 +7,8 @@ using Application.Services.User;
 using Demo.Helper;
 using Domain.Entity.Identity;
 using Infrastructure.EF;
+using Infrastructure.Email;
+using Infrastructure.Extensions;
 using Infrastructure.Repositories.Appointments;
 using Infrastructure.Repositories.Doctors;
 using Infrastructure.Repositories.Patients;
@@ -66,6 +68,10 @@ namespace WebAPI
 			services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
 			services.AddScoped<IRoleService, RoleService>();
 			services.AddScoped<IUserService, UserService>();
+
+			//mail
+			services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+			services.AddTransient<IEmailService, EmailService>();
 
 			services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<DataDbContext>()

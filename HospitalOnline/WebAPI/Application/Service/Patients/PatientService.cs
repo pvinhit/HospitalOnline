@@ -6,6 +6,7 @@ using Demo.Entities;
 using Domain.Entity;
 using Infrastructure.Common;
 using Infrastructure.Exceptions;
+using Infrastructure.Filters;
 using Infrastructure.Repositories.Patients;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Data.SqlClient;
@@ -13,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
@@ -130,6 +132,25 @@ namespace Application.Services.Patients
 		{
 			var patients = await _patientRepository.GetPagingAllPatients(pageSize, pageNumber );
 			return _mapper.Map<List<PatientsDto>>(patients);
+		}
+
+		public async Task<List<PatientsDto>> GetPagedAndSortedAsync(int pageSize, int pageNumber, string orderBy)
+		{
+			var patients = await _patientRepository.GetPagedAndSortedAsync(pageSize, pageNumber, orderBy);
+			return _mapper.Map<List<PatientsDto>>(patients);
+		}
+
+		public async Task<List<PatientsDto>> GetFilteredAndPagedAsync(int pageSize, int pageNumber, string searchTerm)
+		{
+			var patients = await _patientRepository.GetPagedAndFilteredAsync(pageSize, pageNumber, searchTerm);
+			return _mapper.Map<List<PatientsDto>>(patients);
+			
+		}
+
+		public async Task<PagedList<PatientsDto>> GetPagedSortedAndFilteredAsync(PageParams productParams)
+		{
+			var patients = await _patientRepository.GetPagedSortedAndFilteredAsync(productParams);
+			return _mapper.Map<PagedList<PatientsDto>>(patients);
 		}
 	}
 }

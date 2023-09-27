@@ -22,11 +22,13 @@ WebAPI HospitalOnline:
 - Repository Pattern
   
 ***Main Function:
-- Create/Read/Update/Delete API 
+- Create/Read/Update/Delete API
+- Pagination/Search/Sort API
+- Up/Dowload File
 - Upload Images
 - SendMail SMTP
 - User Account Management
 - Authentication Role Claim Login Register
-- Authentication Role
+- Authentication
 - Read QR
   

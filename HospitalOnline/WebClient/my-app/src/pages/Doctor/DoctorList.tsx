@@ -14,7 +14,7 @@ const DoctorList = ({id, firstName, lastName, specialty, phone} : DoctorProps) =
   const [doctors, setDoctors] = useState<DoctorProps[]>([]);
 
   useEffect(() => {
-    axios.get('https://localhost:44303/api/Doctor')
+    axios.get('https://localhost:44303/api/Patient/getall')
       .then((response) => {
         const doctorData: DoctorProps[] = response.data;
         setDoctors(doctorData);

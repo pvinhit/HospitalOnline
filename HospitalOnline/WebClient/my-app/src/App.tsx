@@ -3,10 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import DoctorList from './pages/Doctor/DoctorList';
 import DoctorCreate from './pages/Doctor/DoctorCreate';
+import Pagination from './pages/Doctor/Pagination';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
+    <div>
+      <Header />
       <Router>
         <Routes>
         <Route path='/' element={<DoctorList
@@ -20,11 +24,15 @@ function App() {
             path="/create"
             element={<DoctorCreate onCreate={() => {}} />}
           />
+                  <Route
+            path="/paging"
+            element={<Pagination/>}
+          />
         </Routes>
       </Router>
+      <Footer/>
     </div>
   );
-}
-
+};
 export default App;
 

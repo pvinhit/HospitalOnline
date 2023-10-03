@@ -136,7 +136,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "f417e6af-c47a-41db-a429-12fefe3c706a",
+                            ConcurrencyStamp = "2a059135-dd22-4450-93f0-09a28744683c",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -213,7 +213,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "75c244c9-d8b0-473d-a52a-6ed58b1a9f6b",
+                            ConcurrencyStamp = "e6b07ef4-f6c3-4cd1-9c07-f349802fc49b",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tedu.international@gmail.com",
                             EmailConfirmed = true,
@@ -222,7 +222,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "tedu.international@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAELDt7saJeWI0Nby0q16DdB+zO0C5zVWmZ9tJLadVC3Q0SNiM/T+pQVzFoRTCH2N1cQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMmw3TdvPimLFrx+S65vPUZYt42eKeS3qhzXYTPH4H3ArJRCyzkVMFf0+KOZY/WlVA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -257,6 +257,21 @@ namespace Infrastructure.Migrations
                     b.HasIndex("patientId");
 
                     b.ToTable("MedicalHistories");
+                });
+
+            modelBuilder.Entity("Domain.Entity.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("Domain.Entity.Patient", b =>

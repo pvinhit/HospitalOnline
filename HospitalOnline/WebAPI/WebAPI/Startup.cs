@@ -1,3 +1,4 @@
+using Application.Service.Notifications;
 using Application.Services.Appointments;
 using Application.Services.Common;
 using Application.Services.Doctors;
@@ -11,6 +12,7 @@ using Infrastructure.Email;
 using Infrastructure.Extensions;
 using Infrastructure.Repositories.Appointments;
 using Infrastructure.Repositories.Doctors;
+using Infrastructure.Repositories.Notifications;
 using Infrastructure.Repositories.Patients;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -68,6 +70,9 @@ namespace WebAPI
 			services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
 			services.AddScoped<IRoleService, RoleService>();
 			services.AddScoped<IUserService, UserService>();
+
+			services.AddScoped<INotificationService, NotificationService>();
+			services.AddScoped<INotificationRepository, NotificationRepository>();
 
 			//mail
 			services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));

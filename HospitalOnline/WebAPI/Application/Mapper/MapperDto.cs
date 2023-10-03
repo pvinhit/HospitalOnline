@@ -25,7 +25,10 @@ namespace Demo.Helper
 			CreateMap<PatientImage, ProductImageUpdateDto>();
 			CreateMap<ProductImageUpdateDto, PatientImage>();
 
-			
+			CreateMap<Notification, NotificationDto>();
+			CreateMap<NotificationDto, Notification>();
+
+
 		}
 	}
 }

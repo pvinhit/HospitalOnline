@@ -42,5 +42,6 @@ namespace Infrastructure.EF
 		public DbSet<Appointment> Appointments { get; set; }
 		public DbSet<MedicalHistory> MedicalHistories { get; set; }	
 		public DbSet<PatientImage> PatientImages { get; set; }	
+		public DbSet<Notification> Notifications { get; set; }	
 	}
 }
